@@ -58,6 +58,12 @@
     <Compile Include="Jadwal.Designer.cs">
       <DependentUpon>Jadwal.cs</DependentUpon>
     </Compile>
+    <Compile Include="Kelas.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Kelas.Designer.cs">
+      <DependentUpon>Kelas.cs</DependentUpon>
+    </Compile>
     <Compile Include="Main.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -83,6 +89,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Jadwal.resx">
       <DependentUpon>Jadwal.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Kelas.resx">
+      <DependentUpon>Kelas.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Main.resx">
       <DependentUpon>Main.cs</DependentUpon>

@@ -46,9 +46,10 @@
             this.toolStripSplitButton1});
             this.toolStrip1.Location = new System.Drawing.Point(0, 0);
             this.toolStrip1.Name = "toolStrip1";
-            this.toolStrip1.Size = new System.Drawing.Size(1459, 27);
+            this.toolStrip1.Size = new System.Drawing.Size(1094, 27);
             this.toolStrip1.TabIndex = 0;
             this.toolStrip1.Text = "toolStrip1";
+            this.toolStrip1.ItemClicked += new System.Windows.Forms.ToolStripItemClickedEventHandler(this.toolStrip1_ItemClicked);
             // 
             // toolStripSplitButton1
             // 
@@ -62,45 +63,51 @@
             this.toolStripSplitButton1.Image = ((System.Drawing.Image)(resources.GetObject("toolStripSplitButton1.Image")));
             this.toolStripSplitButton1.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.toolStripSplitButton1.Name = "toolStripSplitButton1";
-            this.toolStripSplitButton1.Size = new System.Drawing.Size(39, 24);
+            this.toolStripSplitButton1.Size = new System.Drawing.Size(36, 24);
             this.toolStripSplitButton1.Text = "toolStripSplitButton1";
             // 
             // dataMuridToolStripMenuItem
             // 
             this.dataMuridToolStripMenuItem.Name = "dataMuridToolStripMenuItem";
-            this.dataMuridToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
+            this.dataMuridToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.dataMuridToolStripMenuItem.Text = "Data Murid";
+            this.dataMuridToolStripMenuItem.Click += new System.EventHandler(this.dataMuridToolStripMenuItem_Click);
             // 
             // dataGuruToolStripMenuItem
             // 
             this.dataGuruToolStripMenuItem.Name = "dataGuruToolStripMenuItem";
-            this.dataGuruToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
+            this.dataGuruToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.dataGuruToolStripMenuItem.Text = "Data Guru";
+            this.dataGuruToolStripMenuItem.Click += new System.EventHandler(this.dataGuruToolStripMenuItem_Click);
             // 
             // jadwalToolStripMenuItem
             // 
             this.jadwalToolStripMenuItem.Name = "jadwalToolStripMenuItem";
-            this.jadwalToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
+            this.jadwalToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.jadwalToolStripMenuItem.Text = "Jadwal";
+            this.jadwalToolStripMenuItem.Click += new System.EventHandler(this.jadwalToolStripMenuItem_Click);
             // 
             // mataPelajaranToolStripMenuItem
             // 
             this.mataPelajaranToolStripMenuItem.Name = "mataPelajaranToolStripMenuItem";
-            this.mataPelajaranToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
+            this.mataPelajaranToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.mataPelajaranToolStripMenuItem.Text = "Mata Pelajaran";
+            this.mataPelajaranToolStripMenuItem.Click += new System.EventHandler(this.mataPelajaranToolStripMenuItem_Click);
             // 
             // kelasToolStripMenuItem
             // 
             this.kelasToolStripMenuItem.Name = "kelasToolStripMenuItem";
-            this.kelasToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
+            this.kelasToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.kelasToolStripMenuItem.Text = "Kelas";
+            this.kelasToolStripMenuItem.Click += new System.EventHandler(this.kelasToolStripMenuItem_Click);
             // 
             // Main
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1459, 479);
+            this.ClientSize = new System.Drawing.Size(1094, 389);
             this.Controls.Add(this.toolStrip1);
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "Main";
             this.Text = "Main";
             this.toolStrip1.ResumeLayout(false);

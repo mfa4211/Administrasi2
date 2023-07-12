@@ -13,6 +13,9 @@ namespace Administrasi
 {
     public partial class Jadwal : Form
     {
+        SqlDataAdapter sda;
+        SqlCommandBuilder scb;
+        DataTable dt;
         public Jadwal()
         {
             InitializeComponent();
@@ -20,22 +23,57 @@ namespace Administrasi
 
         private void button1_Click(object sender, EventArgs e)
         {
+            SqlConnection con = new SqlConnection("Data Source=WINDOWS-CD7O5KF;Initial Catalog=Administrasi_sekolah;Integrated Security=True");
+            con.Open();
+            SqlCommand cmd = new SqlCommand("insert into Jadwal values (@ID, @GURU,  @HARI, @WAKTU, @KODE)", con);
+            cmd.Parameters.AddWithValue("@ID", textBox1.Text);
+            cmd.Parameters.AddWithValue("@GURU", textBox2.Text);
+            cmd.Parameters.AddWithValue("@HARI", textBox3.Text);
+            cmd.Parameters.AddWithValue("@WAKTU", textBox4.Text);
+            cmd.Parameters.AddWithValue("@KODE", textBox5.Text);
+            cmd.ExecuteNonQuery();
 
+            con.Close();
+            MessageBox.Show("Successfully saved");
         }
 
         private void button2_Click(object sender, EventArgs e)
         {
+            SqlConnection con = new SqlConnection("Data Source=WINDOWS-CD7O5KF;Initial Catalog=Administrasi_sekolah;Integrated Security=True");
+            con.Open();
+            SqlCommand cmd = new SqlCommand("Delete Jadwal where ID=@ID", con);
+            cmd.Parameters.AddWithValue("@ID", textBox1.Text);
+            cmd.ExecuteNonQuery();
 
+            con.Close();
+            MessageBox.Show("Successfully Deleted");
         }
 
         private void button3_Click(object sender, EventArgs e)
         {
+            SqlConnection con = new SqlConnection("Data Source=WINDOWS-CD7O5KF;Initial Catalog=Administrasi_sekolah;Integrated Security=True");
+            con.Open();
+            SqlCommand cmd = new SqlCommand("Update Jadwal set GURU=@GURU, HARI=@HARI, WAKTU=@WAKTU, KODE_kelas=@KODE WHERE Id_jadwal=@ID", con);
+            cmd.Parameters.AddWithValue("@ID", textBox1.Text);
+            cmd.Parameters.AddWithValue("@GURU", textBox2.Text);
+            cmd.Parameters.AddWithValue("@HARI", textBox3.Text);
+            cmd.Parameters.AddWithValue("@WAKTU", textBox4.Text);
+            cmd.Parameters.AddWithValue("@KODE", textBox5.Text);
+            cmd.ExecuteNonQuery();
 
+            con.Close();
+            MessageBox.Show("Successfully UPDATED");
         }
 
         private void button4_Click(object sender, EventArgs e)
         {
-
+            SqlConnection con = new SqlConnection("Data Source=WINDOWS-CD7O5KF;Initial Catalog=Administrasi_sekolah;Integrated Security=True");
+            con.Open();
+            SqlCommand cmd = new SqlCommand("SELECT * FROM Jadwal", con);
+            SqlDataAdapter da = new SqlDataAdapter(cmd);
+            DataTable dt = new DataTable();
+            da.Fill(dt);
+            dataGridView1.DataSource = dt;
         }
 
         private void textBox1_TextChanged(object sender, EventArgs e)
@@ -74,6 +112,16 @@ namespace Administrasi
         }
 
         private void label4_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label5_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void textBox5_TextChanged(object sender, EventArgs e)
         {
 
         }

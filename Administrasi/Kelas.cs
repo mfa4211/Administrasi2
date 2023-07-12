@@ -11,12 +11,12 @@ using System.Data.SqlClient;
 
 namespace Administrasi
 {
-    public partial class Mapel : Form
+    public partial class Kelas : Form
     {
         SqlDataAdapter sda;
         SqlCommandBuilder scb;
         DataTable dt;
-        public Mapel()
+        public Kelas()
         {
             InitializeComponent();
         }
@@ -25,8 +25,8 @@ namespace Administrasi
         {
             SqlConnection con = new SqlConnection("Data Source=WINDOWS-CD7O5KF;Initial Catalog=Administrasi_sekolah;Integrated Security=True");
             con.Open();
-            SqlCommand cmd = new SqlCommand("insert into Mata_Pelajaran values (@MAPEL_ID, @NAMA, @GURU)", con);
-            cmd.Parameters.AddWithValue("@MAPEL_ID", textBox1.Text);
+            SqlCommand cmd = new SqlCommand("insert into Kelas values (@KODE_KELAS, @NAMA, @GURU)", con);
+            cmd.Parameters.AddWithValue("@KODE_KELAS", textBox1.Text);
             cmd.Parameters.AddWithValue("@NAMA", textBox2.Text);
             cmd.Parameters.AddWithValue("@GURU", textBox3.Text);
             cmd.ExecuteNonQuery();
@@ -39,8 +39,8 @@ namespace Administrasi
         {
             SqlConnection con = new SqlConnection("Data Source=WINDOWS-CD7O5KF;Initial Catalog=Administrasi_sekolah;Integrated Security=True");
             con.Open();
-            SqlCommand cmd = new SqlCommand("Delete Mata_Pelajaran where MAPEL_ID=@MAPEL_ID", con);
-            cmd.Parameters.AddWithValue("@MAPEL_ID", textBox1.Text);
+            SqlCommand cmd = new SqlCommand("Delete Kelas where KODE_KELAS=@KODE_KELAS", con);
+            cmd.Parameters.AddWithValue("@KODE_KELAS", textBox1.Text);
             cmd.ExecuteNonQuery();
 
             con.Close();
@@ -51,65 +51,25 @@ namespace Administrasi
         {
             SqlConnection con = new SqlConnection("Data Source=WINDOWS-CD7O5KF;Initial Catalog=Administrasi_sekolah;Integrated Security=True");
             con.Open();
-            SqlCommand cmd = new SqlCommand("Update Mata_Pelajaran set NAMA_MAPEL=@NAMA, GURU=@GURU  WHERE MAPEL_ID=@MAPEL_ID", con);
-            cmd.Parameters.AddWithValue("@MAPEL_ID", textBox1.Text);
+            SqlCommand cmd = new SqlCommand("update Kelas set NAMA=@NAMA, GURU=@GURU WHERE KODE_KELAS=@KODE_KELAS", con);
+            cmd.Parameters.AddWithValue("@KODE_KELAS", textBox1.Text);
             cmd.Parameters.AddWithValue("@NAMA", textBox2.Text);
             cmd.Parameters.AddWithValue("@GURU", textBox3.Text);
             cmd.ExecuteNonQuery();
 
             con.Close();
-            MessageBox.Show("Successfully Updated");
+            MessageBox.Show("Successfully UPDATED");
         }
 
         private void button4_Click(object sender, EventArgs e)
         {
             SqlConnection con = new SqlConnection("Data Source=WINDOWS-CD7O5KF;Initial Catalog=Administrasi_sekolah;Integrated Security=True");
             con.Open();
-            SqlCommand cmd = new SqlCommand("SELECT * FROM Mata_pelajaran", con);
+            SqlCommand cmd = new SqlCommand("SELECT * FROM Kelas", con);
             SqlDataAdapter da = new SqlDataAdapter(cmd);
             DataTable dt = new DataTable();
             da.Fill(dt);
             dataGridView1.DataSource = dt;
-        }
-
-        private void textBox1_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void textBox2_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void textBox3_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void textBox5_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label1_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label2_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label3_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label5_Click(object sender, EventArgs e)
-        {
-
         }
     }
 }
